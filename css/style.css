@@ -152,6 +152,7 @@ h4 {
 }
 
 .btn {
+  position: relative;
   display: flex;
   align-items: center;
   column-gap: 20px;
@@ -208,6 +209,24 @@ h4 {
   content: url(../img/btn-arrow-pink.svg);
 }
 
+@media (max-width: 360px) {
+  .btn {
+    padding: 18px;
+  }
+
+  .btn_pink::after {
+    position: absolute;
+    right: 27px;
+    top: 9px;
+  }
+
+  .btn_border::after {
+    position: absolute;
+    right: 9px;
+    top: 0;
+  }
+}
+
 .btn_border:hover {
   background-color: var(--pink-lite);
   color: var(--white);
@@ -230,11 +249,13 @@ h4 {
 
 @media (max-width: 360px) {
   .btn {
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
   }
 
-
+  .btn_text {
+    justify-self: end;
+  }
 
 }
 
@@ -428,9 +449,6 @@ img {
     border-radius: 200px;
   }
 
-
-
-
   .logo_img {
     height: 29px;
     width: 25px;
@@ -449,7 +467,12 @@ img {
     display: flex;
   }
 
+}
 
+@media (max-width: 360px) {
+  .btn_mobile span {
+    padding-right: 40px;
+  }
 }
 
 
@@ -1114,6 +1137,12 @@ img {
   align-items: center;
 }
 
+@media (max-width: 360px) {
+  .iftoy_img {
+    margin-top: 30px;
+  }
+}
+
 .ifyou_item_list {
   padding-top: 17.4px;
   padding-bottom: 17.4px;
@@ -1260,7 +1289,33 @@ img {
 
   .stages_text {
     font-size: 16px;
+  }
+}
 
+@media (max-width: 360px) {
+  .stages_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 60px;
+    margin-top: 30px;
+  }
+
+  .stages_item {
+    padding: 20px 30px 20px 57px;
+  }
+
+  .stages_text {
+    font-size: 18px;
+  }
+
+  .stages_arrow {
+    position: absolute;
+    left: 44%;
+    top: 89%;
+    height: 61px;
+    width: 61px;
+    transform: rotate(90deg);
   }
 }
 
@@ -1392,6 +1447,34 @@ img {
   }
 }
 
+@media (max-width: 360px) {
+
+  .swiper-slide {}
+
+  .slider_img {
+    width: 140px;
+    height: 140px;
+  }
+
+  .slider_title {
+    font-size: 18px;
+  }
+
+  .desription_wrapper {}
+
+  .slider_desription {
+    font-size: 16px;
+  }
+
+  .achievements {
+    font-size: 16px;
+  }
+
+  .slider_navigation {
+    margin-top: 40px;
+  }
+}
+
 /* faq */
 
 .faq {
@@ -1507,8 +1590,16 @@ img {
 
 }
 
+
 .faq_text_wrapper {
   margin-top: 90px;
+}
+
+
+@media (max-width: 360px) {
+  .faq_text_wrapper {
+    margin-top: 40px;
+  }
 }
 
 .sendme a {
