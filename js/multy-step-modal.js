@@ -1,9 +1,7 @@
 window.addEventListener('load', function () {
 
-
-
     let overlay = document.querySelector('.overlay');
-    let close = document.querySelector('.close')
+    let close = document.querySelector('.clouse_wrapper')
 
     document.querySelectorAll('.btn_popup_amts').forEach((el) => {
         el.addEventListener('click', function () {
@@ -27,6 +25,10 @@ const btnSubmit = document.querySelector('.btn_submit');
 const btnPrev = document.querySelector('.btn_prev');
 const btnNext = document.querySelector('.btn_next');
 const bullets = document.querySelectorAll('.bullet');
+
+// clouse.addEventListener('click' function(){
+
+// });
 
 let currentTab = 0;
 

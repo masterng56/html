@@ -182,6 +182,7 @@ margin: 0;
     flex-direction: column;
     row-gap: 15px;
     margin-top: 40px;
+    
 }
 
 .tab_active {
@@ -192,6 +193,7 @@ margin: 0;
     padding: 13px 16px;
     border-radius: 18px;
     border: 1px solid #0260A2;
+    
 }
 
 .tab p {
@@ -230,19 +232,23 @@ margin: 0;
     background-color: #0260A2;
 }
 
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
     .contact_form_amts{
-        max-width: 640px;
+        width: 640px;
     } 
 }
 @media (max-width: 768px) {
     .contact_form_amts{
-        max-width: 394px;
+        width: 394px;
     } 
+
+    .bullet{
+        width: 30px;
+    }
 }
 @media (max-width: 767px) {
     .contact_form_amts{
-        max-width: 328px;
+        width: 328px;
     } 
 
     .tab p {
