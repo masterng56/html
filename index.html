@@ -12,7 +12,11 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<link rel="stylesheet" href="./css/amts-popup.css">
+	<link rel="stylesheet" href="./css/popup-style.css">
 	<link rel="stylesheet" href="./css/style.css">
+	<link rel="stylesheet" href="./css/media.css">
+
 	<title>Карьерный портал Оренбургской области</title>
 </head>
 
@@ -120,7 +124,7 @@
 								<a href="#faq">FAQ</a>
 							</li>
 
-							<button class="btn btn_pink btn_mobile"><span>Подать заявку</span></button>
+							<button class="btn btn_pink btn_mobile btn_popup_amts"><span>Подать заявку</span></button>
 
 						</ul>
 
@@ -158,7 +162,7 @@
 
 					</div>
 
-					<button class="btn btn_pink btn_hero"><span>Подать заявку</span></button>
+					<button class="btn btn_pink btn_hero btn_popup_amts"><span>Подать заявку</span></button>
 
 				</section>
 
@@ -620,7 +624,7 @@
 
 						<div class="ifyou_colltoaction">
 							<div>Тогда тебе к нам!</div>
-							<button class="btn btn_border btn_ifyou">
+							<button class="btn btn_border btn_ifyou btn_popup_amts">
 								<span class="btn_text">Подать заявку</span>
 							</button>
 						</div>
@@ -894,7 +898,7 @@
 								prevEl: ".button_prev",
 							},
 							breakpoints: {
-								599: {
+								768: {
 									slidesPerView: 3,
 								}
 							}
@@ -1008,6 +1012,69 @@
 
 
 	<script src="./js/main.js"></script>
+	<script src="./js/multy-step-modal.js"></script>
+
 </body>
+<div class="overlay">
+	<div class="form_wrapper">
+		<form class="contact_form_amts">
+			<div class="clouse_wrapper" id="clouse_wrapper">
+				<span class="clouse"></span>
+			</div>
+			<p class="popup_title">Подать заявку</p>
+			<div class="tab">
+				<input type="text" name="name" placeholder="Имя">
+				<input type="text" name="otchestvo" placeholder="Отчество">
+				<input type="text" name="familia" placeholder="фамилия">
+				<input type="text" name="phone" placeholder="Телефон">
+				<input type="text" name="email" placeholder="Email">
+				<input type="text" name="education" placeholder="Учебное заведение">
+				<p>
+					<input type="checkbox" id="agree1">
+					<label for="agree1 agree">Я согласен с условиями обработки персональных данных</label>
+
+				</p>
+			</div>
+
+			<div class="tab">
+				<input type="text" name="name" placeholder="Поле для ввода">
+				<input type="text" name="otchestvo" placeholder="Поле для ввода">
+				<input type="text" name="familia" placeholder="Поле для ввода">
+				<input type="text" name="phone" placeholder="Поле для ввода">
+				<input type="text" name="email" placeholder="Поле для ввода">
+				<input type="text" name="education" placeholder="Поле для ввода">
+				<p>
+					<input type="checkbox" id="agree1">
+					<label for="agree1 agree">Я согласен с <a class="agree_link" href="#">условиями обработки персональных данных</a></label>
+
+				</p>
+			</div>
+
+			<div class="tab">
+				<input type="text" name="name" placeholder="Поле для ввода">
+				<input type="text" name="otchestvo" placeholder="Поле для ввода">
+				<input type="text" name="familia" placeholder="Поле для ввода">
+				<input type="text" name="phone" placeholder="Поле для ввода">
+				<input type="text" name="email" placeholder="Поле для ввода">
+				<input type="text" name="education" placeholder="Поле для ввода">
+				<div class="submit_wrapper">
+					<button class="btn_popup btn_submit">Отправить</button>
+				</div>
+
+			</div>
+
+			<div class="pagination">
+				<button class="btn_popup btn_prev">Назад</button>
+				<div class="boolets_wrapper">
+					<div class="bullet bullet_active"></div>
+					<div class="bullet"></div>
+					<div class="bullet"></div>
+				</div>
+				<button class="btn_popup btn_next">Далее</button>
+			</div>
+
+		</form>
+	</div>
+</div>
 
 </html>

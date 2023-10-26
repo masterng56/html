@@ -1,0 +1,252 @@
+.overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* background-color: rgba(159, 159, 159, 0.50); */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease 0s;
+    z-index: 2;
+}
+
+.contact_form_amts {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    background-color: #fff;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 15px;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+
+
+.contact_form_amts input[type=text]::placeholder {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    color: rgba(12, 84, 160, 0.60);
+}
+
+.popup_active {
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.5s ease 0s;
+}
+
+.res {
+    background-color: #f4f4f4;
+    color: red;
+}
+
+.contact_form_input {
+    /* margin-bottom: 20px;
+    background-color: #190C26;
+    border: 1px solid #000;
+    color: #000 !important;
+    padding: 15px;
+    border-radius: 50px; */
+}
+
+.contact_form_input:focus {
+    /* background-color: #fff;
+    border: 1px solid #000;
+    color: #000; */
+}
+
+.contact_form_input::placeholder {
+    /* opacity: 0.5;
+    color: #000 !important; */
+}
+
+.err {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    padding: 15px;
+    color: #C52552;
+    background-color: #fff;
+    border: 2px solid #E0D8D6;
+    text-align: center;
+    box-shadow: 0 15px 30px -18px rgb(0 0 0 / 90%);
+    opacity: 0;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*border-radius: 50px;*/
+}
+
+.btn_popup {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn_submit {
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    background-color: #0260A2;
+}
+
+.btn_submit:hover {
+    background-color: #0080DA;
+}
+
+.btn_submit:active {
+    background-color: #043C64;
+}
+
+.btn_prev,
+.btn_next {
+    border: 0;
+    color: #0260A2;
+    background-color: #fff;
+}
+
+.btn_prev:active,
+.btn_next:active {
+    background-color: #F1F1F1;
+}
+
+
+
+.clouse_wrapper {
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+
+}
+
+.contact_form_amts .clouse {
+    position: relative;
+    cursor: pointer;
+
+}
+
+.contact_form_amts .clouse::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: #0260A2;
+    transform: rotate(45deg);
+}
+
+.contact_form_amts .clouse::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 20px;
+    background: #0260A2;
+    transform: rotate(-45deg);
+}
+
+.popup_title{
+    font-size: 22px;
+font-style: normal;
+font-weight: 500;
+line-height: 130%;
+margin: 0;
+}
+
+
+.tab {
+    display: none;
+    flex-direction: column;
+    row-gap: 15px;
+    margin-top: 40px;
+}
+
+.tab_active {
+    display: flex;
+}
+
+.tab input {
+    padding: 13px 16px;
+    border-radius: 18px;
+    border: 1px solid #0260A2;
+}
+
+.tab p {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    color: #0260A2;
+}
+
+.btn_submit {
+    align-self: center;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.boolets_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 5px;
+}
+
+.bullet {
+    height: 6px;
+    width: 70px;
+    background-color: #ebebeb;
+    border-radius: 10px;
+}
+
+.bullet_active {
+    background-color: #0260A2;
+}
+
+@media (max-width: 1024px) {
+    .contact_form_amts{
+        max-width: 640px;
+    } 
+}
+@media (max-width: 768px) {
+    .contact_form_amts{
+        max-width: 394px;
+    } 
+}
+@media (max-width: 767px) {
+    .contact_form_amts{
+        max-width: 328px;
+    } 
+
+    .tab p {
+        font-size: 14px;
+     
+    }
+}
