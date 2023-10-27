@@ -19,80 +19,80 @@ window.addEventListener('load', function () {
         }
     });
 
-const tabs = document.querySelectorAll('.tab');
-const clouse = document.querySelector('.clouse');
-const btnSubmit = document.querySelector('.btn_submit');
-const btnPrev = document.querySelector('.btn_prev');
-const btnNext = document.querySelector('.btn_next');
-const bullets = document.querySelectorAll('.bullet');
+    const tabs = document.querySelectorAll('.tab');
+    const clouse = document.querySelector('.clouse');
+    const btnSubmit = document.querySelector('.btn_submit');
+    const btnPrev = document.querySelector('.btn_prev');
+    const btnNext = document.querySelector('.btn_next');
+    const bullets = document.querySelectorAll('.bullet');
 
-// clouse.addEventListener('click' function(){
+    // clouse.addEventListener('click' function(){
 
-// });
+    // });
 
-let currentTab = 0;
+    let currentTab = 0;
 
-showTab(currentTab);
-
-function showTab(n) {
-    tabs[n].classList.add('tab_active');
-
-    if (n == 0) {
-        btnPrev.disabled = true;
-        btnSubmit.disabled = true;
-    }
-    else {
-        btnPrev.disabled = false;
-    }
-
-    if (n == (tabs.length - 1)) {
-        btnSubmit.disabled = false;
-    }
-}
-
-btnNext.addEventListener('click', function (e) {
-    e.preventDefault();
-    if (currentTab == tabs.length) {
-    }
-    tabs.forEach(element => {
-        element.classList.remove('tab_active');
-    });
-
-    currentTab++;
-    tabs[currentTab].classList.add('tab_active');
     showTab(currentTab);
-    getIndex();
 
-});
+    function showTab(n) {
+        tabs[n].classList.add('tab_active');
 
-btnPrev.addEventListener('click', function (e) {
-    e.preventDefault();
-
-    tabs.forEach(element => {
-        element.classList.remove('tab_active');
-    });
-
-    currentTab = currentTab - 1;
-    tabs[currentTab].classList.add('tab_active');
-    showTab(currentTab);
-    getIndex();
-});
-
-function getIndex() {
-    let count = 0;
-    tabs.forEach(function (item) {
-
-        if (item.className == 'tab tab_active') {
-            bulletSetActive(count);
+        if (n == 0) {
+            btnPrev.disabled = true;
+            btnSubmit.disabled = true;
         }
-        count++;
-    });
-}
+        else {
+            btnPrev.disabled = false;
+        }
 
-function bulletSetActive(num) {
-    bullets.forEach(item => {
-        item.classList.remove('bullet_active');
+        if (n == (tabs.length - 1)) {
+            btnSubmit.disabled = false;
+            btnNext.disabled = true;
+        }
+    }
+
+    btnNext.addEventListener('click', function (e) {
+        e.preventDefault();
+        removeActive()
+
+        currentTab++;
+        tabs[currentTab].classList.add('tab_active');
+        showTab(currentTab);
+        getIndex();
+
     });
-    bullets[num].classList.add('bullet_active');
-}
+
+    btnPrev.addEventListener('click', function (e) {
+        e.preventDefault();
+        removeActive()
+
+        currentTab = currentTab - 1;
+        tabs[currentTab].classList.add('tab_active');
+        showTab(currentTab);
+        getIndex();
+    });
+
+    function getIndex() {
+        let count = 0;
+        tabs.forEach(function (item) {
+
+            if (item.className == 'tab tab_active') {
+                bulletSetActive(count);
+            }
+            count++;
+        });
+    }
+
+    function bulletSetActive(num) {
+        bullets.forEach(item => {
+            item.classList.remove('bullet_active');
+        });
+        bullets[num].classList.add('bullet_active');
+    }
+
+    function removeActive() {
+        tabs.forEach(element => {
+            element.classList.remove('tab_active');
+        });
+    }
 });
