@@ -264,25 +264,54 @@ input[name=average]{
     .contact_form_amts {
         width: 640px;
     }
+
 }
 
 @media (max-width: 768px) {
     .contact_form_amts {
         width: 394px;
     }
-
-    .bullet {
-        width: 30px;
+    .contact_form_amts input {
+        font-size: 14px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
+    .btn_prev,
+    .btn_next{
+        font-size: 16px;
+    }
+    .agree_label{
+        font-size: 16px;
+    }
+    .input_wrapper span {
+        font-size: 12px;
+    }
+    .contact_form_amts input {
+        font-size: 14px;
+    }
+    input[name=average]{
+        margin-top: 30px;
+    }
+
 }
 
 @media (max-width: 767px) {
     .contact_form_amts {
         width: 328px;
     }
-
-    .tab p {
+    .contact_form_amts input {
+        font-size: 12px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .agree_label{
         font-size: 14px;
-
+    }
+    .input_wrapper input[name=points]{
+        margin-top: 16px;
     }
 }

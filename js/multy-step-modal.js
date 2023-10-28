@@ -44,6 +44,7 @@ window.addEventListener('load', function () {
         if (n == 0) {
             btnPrev.disabled = true;
             btnSubmit.disabled = true;
+            btnSubmit.style.display = "none";
         }
         else {
             btnPrev.disabled = false;
@@ -52,24 +53,32 @@ window.addEventListener('load', function () {
         if (n == (tabs.length - 1)) {
             btnSubmit.disabled = false;
             btnNext.disabled = true;
+            btnNext.style.display = "none";
+            btnSubmit.style.display = "block";
         }
     }
 
     btnNext.addEventListener('click', function (e) {
         e.preventDefault();
         removeActive()
-
+        btnPrev.disabled = false;
         currentTab++;
         tabs[currentTab].classList.add('tab_active');
         showTab(currentTab);
         getIndex();
+        if (n == (tabs.length - 1)) {
+            btnSubmit.disabled = false;
+            btnNext.disabled = true;
+            
+        }
 
     });
 
     btnPrev.addEventListener('click', function (e) {
         e.preventDefault();
         removeActive()
-
+        btnNext.disabled = false;
+        btnNext.style.display = "block";
         currentTab = currentTab - 1;
         tabs[currentTab].classList.add('tab_active');
         showTab(currentTab);
