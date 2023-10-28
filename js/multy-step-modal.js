@@ -11,6 +11,7 @@ window.addEventListener('load', function () {
                 overlay.classList.remove('popup_active');
             });
         });
+
     });
 
     window.addEventListener('click', function (e) {
@@ -33,6 +34,9 @@ window.addEventListener('load', function () {
     let currentTab = 0;
 
     showTab(currentTab);
+
+    let currentStep = document.querySelectorAll('.tab_active input');
+    console.log(currentStep[0]);
 
     function showTab(n) {
         tabs[n].classList.add('tab_active');
@@ -77,18 +81,18 @@ window.addEventListener('load', function () {
         tabs.forEach(function (item) {
 
             if (item.className == 'tab tab_active') {
-                bulletSetActive(count);
+                // bulletSetActive(count);
             }
             count++;
         });
     }
 
-    function bulletSetActive(num) {
-        bullets.forEach(item => {
-            item.classList.remove('bullet_active');
-        });
-        bullets[num].classList.add('bullet_active');
-    }
+    // function bulletSetActive(num) {
+    //     bullets.forEach(item => {
+    //         item.classList.remove('bullet_active');
+    //     });
+    //     bullets[num].classList.add('bullet_active');
+    // }
 
     function removeActive() {
         tabs.forEach(element => {

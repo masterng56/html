@@ -12,8 +12,9 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 	<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+	<script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
 	<link rel="stylesheet" href="./css/amts-popup.css">
-	<link rel="stylesheet" href="./css/popup-style.css">
+
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/media.css">
 
@@ -1012,69 +1013,65 @@
 
 
 	<script src="./js/main.js"></script>
+
 	<script src="./js/multy-step-modal.js"></script>
 
 </body>
 <div class="overlay">
 	<div class="form_wrapper">
-		<form class="contact_form_amts">
+		<form class="contact_form_amts" id="contact_form_amts">
 			<div class="clouse_wrapper" id="clouse_wrapper">
 				<span class="clouse"></span>
 			</div>
 			<p class="popup_title">Подать заявку</p>
-			<div class="tab">
+			<div class="tab tab_one">
 				<input type="text" name="name" placeholder="Имя">
 				<input type="text" name="otchestvo" placeholder="Отчество">
 				<input type="text" name="familia" placeholder="фамилия">
-				<input type="text" name="phone" placeholder="Телефон">
-				<input type="text" name="email" placeholder="Email">
-				<input type="text" name="education" placeholder="Учебное заведение">
-				<p>
-					<input type="checkbox" id="agree1">
-					<label for="agree1 agree">Я согласен с условиями обработки персональных данных</label>
-
-				</p>
+				<input type="text" name="phone" placeholder="Номер телефона">
+				<input type="text" name="email" placeholder="Электронная почта">
+				<input type="text" name="education" placeholder="Ваше учебное заведение">
 			</div>
 
-			<div class="tab">
-				<input type="text" name="name" placeholder="Поле для ввода">
-				<input type="text" name="otchestvo" placeholder="Поле для ввода">
-				<input type="text" name="familia" placeholder="Поле для ввода">
-				<input type="text" name="phone" placeholder="Поле для ввода">
-				<input type="text" name="email" placeholder="Поле для ввода">
-				<input type="text" name="education" placeholder="Поле для ввода">
-				<p>
-					<input type="checkbox" id="agree1">
-					<label for="agree1 agree">Я согласен с <a class="agree_link" href="#">условиями обработки персональных данных</a></label>
+			<div class="tab tab_two">
+				<input type="text" name="city" placeholder="Место рождения (область, город)">
+				<div class="input_wrapper">
+					<input type="text" name="subjects" placeholder="Названия предметов, по ЕГЭ (3 основных)">
+					<span>Если Вы не сдавали ЕГЭ - оставьте это поле пустым.</span>
+				</div>
+				
+				<div class="input_wrapper">
+					<input type="text" name="points" placeholder="Сумма баллов ЕГЭ (3 предмета)">
+					<span>Если Вы не сдавали ЕГЭ - оставьте это поле пустым. </span>
+				</div>
+				
+				<input type="text" name="average" placeholder="Средний балл в зачетной книжке">
 
-				</p>
-			</div>
-
-			<div class="tab">
-				<input type="text" name="name" placeholder="Поле для ввода">
-				<input type="text" name="otchestvo" placeholder="Поле для ввода">
-				<input type="text" name="familia" placeholder="Поле для ввода">
-				<input type="text" name="phone" placeholder="Поле для ввода">
-				<input type="text" name="email" placeholder="Поле для ввода">
-				<input type="text" name="education" placeholder="Поле для ввода">
-				<div class="submit_wrapper">
-					<button class="btn_popup btn_submit">Отправить</button>
+				<div class="agree_wrapper">
+					<input type="checkbox" id="form_agree">
+					<label for="form_agree">Я согласен с <a class="agree_link" href="#">условиями обработки персональных данных</a>
+					</label>
 				</div>
 
 			</div>
 
 			<div class="pagination">
 				<button class="btn_popup btn_prev">Назад</button>
-				<div class="boolets_wrapper">
+				<!-- <div class="boolets_wrapper">
 					<div class="bullet bullet_active"></div>
 					<div class="bullet"></div>
 					<div class="bullet"></div>
+				</div> -->
+				<div class="submit_wrapper">
+					<button class="btn_popup btn_submit" type="submit">Отправить</button>
+					<button class="btn_popup btn_next">Далее</button>
 				</div>
-				<button class="btn_popup btn_next">Далее</button>
+
 			</div>
 
 		</form>
 	</div>
+	<script src="./js/validate.js"></script>
 </div>
 
 </html>
