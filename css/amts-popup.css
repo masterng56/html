@@ -200,8 +200,13 @@
     font-weight: 400;
     line-height: 130%;
     padding: 9px 18px 10px 18px;
+    outline: none;
     border-radius: 18px;
     border: 1px solid #0260A2;
+}
+
+.contact_form_amts textarea{
+    outline: none;
 }
 
 .contact_form_amts input::placeholder {
@@ -222,11 +227,11 @@
 }
 
 .contact_form_amts input:focus{
-    bottom: 2px solid #0260A2;
+    border: 2px solid #0260A2;
 }
 
 .contact_form_amts textarea:focus{
-    bottom: 2px solid #0260A2;
+    border: 2px solid #0260A2;
 }
 
 .btn_submit {
