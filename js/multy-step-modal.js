@@ -25,7 +25,7 @@ window.addEventListener('load', function () {
     const btnSubmit = document.querySelector('.btn_submit');
     const btnPrev = document.querySelector('.btn_prev');
     const btnNext = document.querySelector('.btn_next');
-    const bullets = document.querySelectorAll('.bullet');
+    // const bullets = document.querySelectorAll('.bullet');
 
     // clouse.addEventListener('click' function(){
 
@@ -43,6 +43,7 @@ window.addEventListener('load', function () {
 
         if (n == 0) {
             btnPrev.disabled = true;
+            btnPrev.style.color = "white";
             btnSubmit.disabled = true;
             btnSubmit.style.display = "none";
         }
@@ -62,6 +63,7 @@ window.addEventListener('load', function () {
         e.preventDefault();
         removeActive()
         btnPrev.disabled = false;
+        btnPrev.style.color = "#0260A2";
         currentTab++;
         tabs[currentTab].classList.add('tab_active');
         showTab(currentTab);
