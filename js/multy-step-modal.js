@@ -25,6 +25,7 @@ window.addEventListener('load', function () {
     const btnSubmit = document.querySelector('.btn_submit');
     const btnPrev = document.querySelector('.btn_prev');
     const btnNext = document.querySelector('.btn_next');
+    let tabInputs = '';
     // const bullets = document.querySelectorAll('.bullet');
 
     // clouse.addEventListener('click' function(){
@@ -38,20 +39,21 @@ window.addEventListener('load', function () {
     let currentStep = document.querySelectorAll('.tab_active input');
     console.log(currentStep[0]);
 
-    function showTab(n) {
-        tabs[n].classList.add('tab_active');
+    function showTab(currentTab) {
+        tabs[currentTab].classList.add('tab_active');
 
-        if (n == 0) {
+        if (currentTab == 0) {
             btnPrev.disabled = true;
             btnPrev.style.color = "white";
             btnSubmit.disabled = true;
             btnSubmit.style.display = "none";
+            
         }
         else {
             btnPrev.disabled = false;
         }
 
-        if (n == (tabs.length - 1)) {
+        if (currentTab == (tabs.length - 1)) {
             btnSubmit.disabled = false;
             btnNext.disabled = true;
             btnNext.style.display = "none";
@@ -61,18 +63,26 @@ window.addEventListener('load', function () {
 
     btnNext.addEventListener('click', function (e) {
         e.preventDefault();
-        removeActive()
+        tabInputs = document.querySelectorAll('.tab_active input');
+        
+        if(validateFields(tabInputs)){
+            validateFields(tabInputs);
+            console.log(validateFields(tabInputs));
+            removeActive()
         btnPrev.disabled = false;
         btnPrev.style.color = "#0260A2";
         currentTab++;
         tabs[currentTab].classList.add('tab_active');
         showTab(currentTab);
         getIndex();
-        if (n == (tabs.length - 1)) {
+        if (currentTab == (tabs.length - 1)) {
             btnSubmit.disabled = false;
             btnNext.disabled = true;
-            
         }
+        }
+        
+        
+      
 
     });
 
@@ -108,6 +118,20 @@ window.addEventListener('load', function () {
     function removeActive() {
         tabs.forEach(element => {
             element.classList.remove('tab_active');
+        });
+    }
+
+    function validateFields(array){
+        array.forEach(element => {
+            if(element.value === ''){
+                element.classList.add('err');
+                return false;
+            }
+            else{
+                element.classList.remove('err');
+                return true;
+                console.log('true');
+            }
         });
     }
 });

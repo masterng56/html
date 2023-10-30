@@ -63,7 +63,7 @@
     color: #000 !important; */
 }
 
-.err {
+.err_message {
     position: absolute;
     top: 0;
     left: 50%;
@@ -82,6 +82,8 @@
     align-items: center;
     /*border-radius: 50px;*/
 }
+
+
 
 .btn_popup {
     border: 0;
@@ -292,6 +294,10 @@ textarea[name=whyyou]{
     font-style: normal;
     font-weight: 400;
     line-height: 130%;
+}
+
+.contact_form_amts .err{
+    border: 1px solid #C52552;
 }
 
 
