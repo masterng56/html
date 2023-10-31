@@ -80,7 +80,7 @@ window.addEventListener('load', function () {
 
 			else {
 				input.classList.remove('err');
-				console.log('все поля заполнены');
+
 			}
 
 			if (emptyInputs.length !== 0) {
@@ -133,7 +133,7 @@ window.addEventListener('load', function () {
 			}
 			else {
 				inputEmail.classList.remove('err');
-				console.log('Email OK');
+
 			}
 
 			if (!validationData(phoneValue, pattern.phone)) {
@@ -175,7 +175,7 @@ window.addEventListener('load', function () {
 		btnPrev.disabled = false;
 		btnPrev.style.color = "#0260A2";
 		currentTab++;
-		console.log('currentTab = ' + currentTab);
+
 		tabs[currentTab].classList.add('tab_active');
 		getIndex();
 		btnPrev.disabled = false;
@@ -183,13 +183,77 @@ window.addEventListener('load', function () {
 		btnNext.disabled = true;
 		btnNext.style.display = "none";
 		btnSubmit.style.display = "block";
-		console.log('currentTab != 0');
+
 	});
 
-	btnSubmit.addEventListener('click', function () {
-		currentStep.forEach(function (input) {
+	btnSubmit.addEventListener('click', function (e) {
+		let stepInputs = document.querySelectorAll('.tab_active input');
+		emptyInputs = Array.from(currentStep).filter(input => input.value === '');
+		let textArea = document.querySelector('textarea[name="whyyou"]');
+		let subjectsInput = document.querySelector('input[name="subjects"]');
+		let pointsInput = document.querySelector('input[name="points"]');
+		let averageInput = document.querySelector('input[name="average"]');
+		let checkboxInput = document.querySelector('input[name="checkbox"]');
 
+		console.log(textArea);
+
+		console.log(stepInputs);
+		e.preventDefault();
+		console.log(currentStep);
+		stepInputs.forEach(function (input) {
+			if (!subjectsInput.value === '') {
+				if (!validationData(subjectsInput.value, pattern.text)) {
+					errMessage.innerText = 'Поле "Средний бал" заполнено не правильно';
+					console.log(textArea);
+					subjectsInput.classList.add('err');
+					message();
+					return false;
+				}
+				else {
+					subjectsInput.classList.remove('err');
+				}
+			}
+
+
+			if (!pointsInput.value === '') {
+				if (!validationData(pointsInput.value, pattern.text)) {
+					errMessage.innerText = 'Поле "Средний бал" заполнено не правильно';
+					console.log(textArea);
+					pointsInput.classList.add('err');
+					message();
+					return false;
+				}
+				else {
+					pointsInput.classList.remove('err');
+				}
+			}
+
+
+
+			if (!validationData(averageInput.value, pattern.text)) {
+				errMessage.innerText = 'Поле "Средний бал" заполнено не правильно';
+				console.log(textArea);
+				averageInput.classList.add('err');
+				message();
+				return false;
+			}
+			else {
+				averageInput.classList.remove('err');
+			}
+
+			if (!validationData(textArea.value, pattern.text)) {
+				errMessage.innerText = 'Поле "Почему вы" заполнено не правильно';
+				console.log(textArea);
+				textArea.classList.add('err');
+				message();
+				return false;
+			}
+			else {
+				textArea.classList.remove('err');
+			}
+			alert('валидация прошла');
 		});
+
 	});
 
 
@@ -201,7 +265,7 @@ window.addEventListener('load', function () {
 			btnPrev.style.color = "white";
 			btnSubmit.disabled = true;
 			btnSubmit.style.display = "none";
-			console.log('currentTab = 0');
+
 		}
 		else {
 			btnPrev.disabled = false;
@@ -209,7 +273,7 @@ window.addEventListener('load', function () {
 			btnNext.disabled = true;
 			btnNext.style.display = "none";
 			btnSubmit.style.display = "block";
-			console.log('currentTab != 0');
+
 		}
 
 		// if (currentTab == (tabs.length - 1)) {
