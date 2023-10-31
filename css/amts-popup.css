@@ -23,7 +23,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
     background-color: #fff;
     flex-direction: column;
     background-color: #fff;
@@ -31,7 +30,7 @@
     padding: 20px;
     margin: 0 15px;
     box-sizing: border-box;
-    z-index: 9999;
+    z-index: 999;
 }
 
 
@@ -80,7 +79,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*border-radius: 50px;*/
+    border-radius: 20px;
+    visibility: hidden;
+}
+
+.err_message_ative{
+    opacity: 1;
+    z-index: 9999;
+    visibility: visible;
+    transition: all 0.5s ease 0s;
 }
 
 
@@ -297,6 +304,10 @@ textarea[name=whyyou]{
 }
 
 .contact_form_amts .err{
+    border: 1px solid #C52552;
+}
+
+.agree_label .err{
     border: 1px solid #C52552;
 }
 
