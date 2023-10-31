@@ -76,6 +76,8 @@ window.addEventListener('load', function () {
 		currentStep.forEach(function (input) {
 			if (input.value === '') {
 				input.classList.add('err');
+				errMessage.innerText = 'Заполните все поля';
+				message();
 				return false;
 			}
 
@@ -276,12 +278,12 @@ window.addEventListener('load', function () {
 			if (!checkboxInput.checked) {
 				errMessage.innerText = 'Примите согласие на обработку данных';
 				
-				agree_label.classList.add('err');
+				agree_label.classList.add('err_color');
 				message();
 				return false;
 			}
 			else {
-				agree_label.classList.remove('err');
+				agree_label.classList.remove('err_color');
 				errMessage.innerText = 'Заявка отправлена!';
 				message();
 			}

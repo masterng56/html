@@ -33,10 +33,6 @@
     z-index: 999;
 }
 
-
-
-
-
 .popup_active {
     opacity: 1;
     visibility: visible;
@@ -79,7 +75,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 20px;
+   border-radius: 20px;
+    /* border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px; */
     visibility: hidden;
 }
 
@@ -308,12 +306,28 @@ textarea[name=whyyou]{
 }
 
 .agree_label .err{
-    border: 1px solid #C52552;
+    color: 1px solid #C52552;
+}
+
+.err_color{
+    color: #C52552;
+}
+
+.err_color a{
+    color: #C52552;
+}
+
+.agree_link{
+    text-decoration: underline;
 }
 
 
 @media (min-width: 1024px) {
     .contact_form_amts {
+        width: 640px;
+    }
+
+    .err_message{
         width: 640px;
     }
 
@@ -329,7 +343,13 @@ textarea[name=whyyou]{
         padding-bottom: 11px;
         padding-left: 10px;
         padding-right: 10px;
+        
     }
+
+    .err_message{
+        width: 394px;
+    }
+
     .btn_prev,
     .btn_next{
         font-size: 16px;
@@ -342,6 +362,7 @@ textarea[name=whyyou]{
     }
     .contact_form_amts input {
         font-size: 14px;
+        
     }
     input[name=average]{
         margin-top: 30px;
@@ -366,6 +387,10 @@ textarea[name=whyyou]{
         padding-bottom: 12px;
         padding-left: 16px;
         padding-right: 16px;
+    }
+    
+    .err_message{
+        width: 328px;
     }
     .agree_label{
         font-size: 14px;
