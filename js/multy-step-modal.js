@@ -76,16 +76,17 @@ window.addEventListener('load', function () {
 		currentStep.forEach(function (input) {
 			if (input.value === '') {
 				input.classList.add('err');
+				return false;
 			}
 
 			else {
 				input.classList.remove('err');
-
 			}
 
 			if (emptyInputs.length !== 0) {
 				errMessage.innerText = 'Заполните все поля';
 				message();
+				
 				return false;
 			}
 
@@ -94,6 +95,8 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Пле "Имя" заполнено не правильно';
 
 				message();
+				validate = false;
+				btnActive()
 				return false;
 			}
 			else {
@@ -105,6 +108,7 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Поле "Отчество" заполнено не правильно';
 
 				message();
+				validate = false;
 				return false;
 			}
 			else {
@@ -117,6 +121,7 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Поле "Фамилия" заполнено не правильно';
 
 				message();
+				validate = false;
 				return false;
 			}
 			else {
@@ -129,6 +134,7 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Поле "Email" заполнено не правильно';
 
 				message();
+				validate = false;
 				return false;
 			}
 			else {
@@ -141,6 +147,7 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Поле "Телефон" заполнено не правильно';
 
 				message();
+				validate = false;
 				return false;
 			}
 			else {
@@ -152,6 +159,7 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Поле "Предметы по ЕГЭ" заполнено не правильно';
 
 				message();
+				validate = false;
 				return false;
 			}
 			else {
@@ -164,27 +172,45 @@ window.addEventListener('load', function () {
 				errMessage.innerText = 'Поле "Место рождения" заполнено не правильно';
 
 				message();
+				validate = false;
 				return false;
 			}
 			else {
 				inputСity.classList.remove('err');
+				validate = true;
+				
 			}
-
+			
 		});
-		removeActive()
-		btnPrev.disabled = false;
-		btnPrev.style.color = "#0260A2";
-		currentTab++;
 
-		tabs[currentTab].classList.add('tab_active');
-		getIndex();
-		btnPrev.disabled = false;
-		btnSubmit.disabled = false;
-		btnNext.disabled = true;
-		btnNext.style.display = "none";
-		btnSubmit.style.display = "block";
+		if(validate){
+			removeActive()
+			btnPrev.disabled = false;
+			btnPrev.style.color = "#0260A2";
+			currentTab++;
+	
+			tabs[currentTab].classList.add('tab_active');
+			getIndex();
+			btnPrev.disabled = false;
+			
+			btnNext.disabled = true;
+			btnNext.style.display = "none";
+			btnSubmit.style.display = "block";
+			btnSubmit.disabled = false;
+		}
+
+		
 
 	});
+
+	function btnActive(){
+		if(validate){
+			btnSubmit.disabled = false;
+		}
+		else{
+			btnSubmit.disabled = true;
+		}
+	}
 
 	btnSubmit.addEventListener('click', function (e) {
 		let stepInputs = document.querySelectorAll('.tab_active input');
@@ -268,10 +294,11 @@ window.addEventListener('load', function () {
 	message();
 
 	function showTab(currentTab) {
-		tabs[currentTab].classList.add('tab_active');
-
+			tabs[currentTab].classList.add('tab_active');
+	
 		if (currentTab == 0) {
 			btnPrev.disabled = true;
+			// btnNext.disabled = true;
 			btnPrev.style.color = "white";
 			btnSubmit.disabled = true;
 			btnSubmit.style.display = "none";
