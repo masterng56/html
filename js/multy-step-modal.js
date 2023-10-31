@@ -193,18 +193,15 @@ window.addEventListener('load', function () {
 		let subjectsInput = document.querySelector('input[name="subjects"]');
 		let pointsInput = document.querySelector('input[name="points"]');
 		let averageInput = document.querySelector('input[name="average"]');
-		let checkboxInput = document.querySelector('input[name="checkbox"]');
+		let checkboxInput = document.querySelector('#form_agree');
+		let agree_label = document.querySelector('.agree_label');
 
-		console.log(textArea);
-
-		console.log(stepInputs);
 		e.preventDefault();
 		console.log(currentStep);
 		stepInputs.forEach(function (input) {
 			if (!subjectsInput.value === '') {
 				if (!validationData(subjectsInput.value, pattern.text)) {
 					errMessage.innerText = 'Поле "Средний бал" заполнено не правильно';
-					console.log(textArea);
 					subjectsInput.classList.add('err');
 					message();
 					return false;
@@ -228,8 +225,6 @@ window.addEventListener('load', function () {
 				}
 			}
 
-
-
 			if (!validationData(averageInput.value, pattern.text)) {
 				errMessage.innerText = 'Поле "Средний бал" заполнено не правильно';
 				console.log(textArea);
@@ -243,7 +238,7 @@ window.addEventListener('load', function () {
 
 			if (!validationData(textArea.value, pattern.text)) {
 				errMessage.innerText = 'Поле "Почему вы" заполнено не правильно';
-				console.log(textArea);
+				
 				textArea.classList.add('err');
 				message();
 				return false;
@@ -251,11 +246,26 @@ window.addEventListener('load', function () {
 			else {
 				textArea.classList.remove('err');
 			}
-			alert('валидация прошла');
+
+			if (!checkboxInput.checked) {
+				errMessage.innerText = 'Примите согласие на обработку данных';
+				
+				agree_label.classList.add('err');
+				message();
+				return false;
+			}
+			else {
+				agree_label.classList.remove('err');
+				errMessage.innerText = 'Заявка отправлена!';
+				message();
+			}
+
 		});
 
-	});
 
+	});
+	errMessage.innerText = 'Заявка отправлена!';
+	message();
 
 	function showTab(currentTab) {
 		tabs[currentTab].classList.add('tab_active');
